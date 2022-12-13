@@ -1,13 +1,16 @@
 import React from "react";
 import "./App.css";
-import MyForm from "./MyForm";
+import TodoForm from "./components/TodoForm";
+import TodoList from "./components/TodoList";
+import { TodosContextProvider } from "./contexts/TodosContext";
 
-const App: React.FC = () => {
-  const onSubmit = (form: { name: string; description: string }) => {
-    console.log(form);
-  };
-
-  return <MyForm onSubmit={onSubmit} />;
+const App = () => {
+  return (
+    <TodosContextProvider>
+      <TodoForm />
+      <TodoList />
+    </TodosContextProvider>
+  );
 };
 
 export default App;
